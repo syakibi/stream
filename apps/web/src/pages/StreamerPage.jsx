@@ -15,13 +15,13 @@ const StreamerPage = () => {
 
   // Simple state without useLocalStorage for now
   const [schedule, setSchedule] = useState({
-    'Monday': 'Art stream',
-    'Tuesday': '',
-    'Wednesday': 'Gaming session',
-    'Thursday': '',
-    'Friday': 'Commission work',
-    'Saturday': 'Community games',
-    'Sunday': ''
+    'Monday': 'Stream Day',
+    'Tuesday': 'Stream Day',
+    'Wednesday': 'Stream Day',
+    'Thursday': 'Stream Day',
+    'Friday': 'Stream Day',
+    'Saturday': 'Rest Day',
+    'Sunday': 'Rest Day',
   });
   const [isModerator, setIsModerator] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
