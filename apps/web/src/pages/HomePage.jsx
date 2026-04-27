@@ -36,7 +36,7 @@ const HomePage = () => {
   
   const featuredWorks = [
     {
-      image: 'https://i.postimg.cc/Dy3ffS3G/art-gallery.gif',
+      image: 'https://postimg.cc/Dy3ffS3G/art-gallery.gif',
       title: 'Art Gallery',
       category: 'Portfolio',
       link: '/art'
@@ -57,7 +57,7 @@ const HomePage = () => {
           <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0">
               <img
-                src="https://i.postimg.cc/VsgRFCsv/showcase-19.png"
+                src="https://postimg.cc/VsgRFCsv/showcase-19.png"
                 alt="Syakibi Twitch Banner"
                 className="w-full h-full object-cover blur-sm"
               />
@@ -136,7 +136,7 @@ const HomePage = () => {
                       style={{ perspective: '1200px', position: 'relative' }}
                     >
                       <motion.img
-                        src="https://i.postimg.cc/fbdC7qkk/about.png"
+                        src="https://postimg.cc/fbdC7qkk/about.png"
                         alt="Syakibi"
                         className="w-full h-auto object-cover"
                         animate={{ 
