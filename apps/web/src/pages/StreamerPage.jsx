@@ -7,15 +7,14 @@ import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
-import { useLocalStorage } from '@/hooks/use-LocalStorage.js';
 
 const StreamerPage = () => {
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const MODERATOR_PASSWORD = 'syakib5249';
   const STREAM_TIME = '11:00 AM GMT+8';
 
-  // Persist schedule and moderator state in localStorage
-  const [schedule, setSchedule] = useLocalStorage('streamer-schedule', {
+  // Simple state without useLocalStorage for now
+  const [schedule, setSchedule] = useState({
     'Monday': 'Art stream',
     'Tuesday': '',
     'Wednesday': 'Gaming session',
@@ -24,7 +23,7 @@ const StreamerPage = () => {
     'Saturday': 'Community games',
     'Sunday': ''
   });
-  const [isModerator, setIsModerator] = useLocalStorage('moderator-mode', false);
+  const [isModerator, setIsModerator] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
   const [editDay, setEditDay] = useState(null);
   const [editValue, setEditValue] = useState('');
@@ -136,28 +135,9 @@ const StreamerPage = () => {
                       ) : (
                         <div className="space-y-4">
                           <p className="text-sm text-muted-foreground">Moderator mode is active.</p>
-                          <div className="flex gap-2">
-                            <Button
-                              variant="outline"
-                              onClick={() => {
-                                setSchedule({
-                                  'Monday': 'Art stream',
-                                  'Tuesday': '',
-                                  'Wednesday': 'Gaming session',
-                                  'Thursday': '',
-                                  'Friday': 'Commission work',
-                                  'Saturday': 'Community games',
-                                  'Sunday': ''
-                                });
-                              }}
-                              className="flex-1"
-                            >
-                              Reset Schedule
-                            </Button>
-                            <Button variant="outline" onClick={() => setIsModerator(false)} className="flex-1">
-                              Lock
-                            </Button>
-                          </div>
+                          <Button variant="outline" onClick={() => setIsModerator(false)} className="w-full">
+                            Lock
+                          </Button>
                         </div>
                       )}
                     </DialogContent>
