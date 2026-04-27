@@ -82,7 +82,7 @@ const StreamerPage = () => {
           <section className="relative py-20 overflow-hidden">
             <div className="absolute inset-0 z-0">
               <img
-                src="https://i.postimg.cc/HxC2607H/banner.png"
+                src="https://postimg.cc/67Yn3v01" //banner
                 alt="Streaming setup"
                 className="w-full h-full object-cover"
               />
