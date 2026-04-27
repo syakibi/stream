@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 import ArtCard from '@/components/ArtCard.jsx';
@@ -10,6 +11,9 @@ import ArtCard from '@/components/ArtCard.jsx';
 const ArtShowcasePage = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [visibleImages, setVisibleImages] = useState(9); // Start with 9 images
+  const [loading, setLoading] = useState(false);
+  const loadMoreRef = useRef(null);
 
   const artworks = [
     { image: 'https://i.postimg.cc/hjqr287x/showcase-0.png', title: 'Showcase 1' },
@@ -41,7 +45,33 @@ const ArtShowcasePage = () => {
     { image: 'https://i.postimg.cc/T14PQ9H5/showcase-26.png', title: 'Showcase 27' }
   ];
 
-  const filteredArtworks = artworks;
+  const filteredArtworks = artworks.slice(0, visibleImages);
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleImages < artworks.length && !loading) {
+          setLoading(true);
+          setTimeout(() => {
+            setVisibleImages(prev => Math.min(prev + 9, artworks.length));
+            setLoading(false);
+          }, 500);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+
+    return () => {
+      if (loadMoreRef.current) {
+        observer.unobserve(loadMoreRef.current);
+      }
+    };
+  }, [visibleImages, loading, artworks.length]);
 
   const openLightbox = (index) => {
     setCurrentImageIndex(index);
@@ -95,6 +125,50 @@ const ArtShowcasePage = () => {
                   </div>
                 ))}
               </div>
+
+              {/* Load More Section */}
+              {visibleImages < artworks.length && (
+                <motion.div
+                  ref={loadMoreRef}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-center mt-12"
+                >
+                  {loading ? (
+                    <div className="flex items-center justify-center gap-3 py-4">
+                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                      <span className="text-muted-foreground">Loading more artwork...</span>
+                    </div>
+                  ) : (
+                    <Button
+                      onClick={() => {
+                        setLoading(true);
+                        setTimeout(() => {
+                          setVisibleImages(prev => Math.min(prev + 9, artworks.length));
+                          setLoading(false);
+                        }, 500);
+                      }}
+                      variant="outline"
+                      size="lg"
+                      className="gap-2"
+                    >
+                      Load More Art
+                      <ChevronDown className="w-4 h-4" />
+                    </Button>
+                  )}
+                </motion.div>
+              )}
+
+              {/* Show total count */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-center mt-8 text-sm text-muted-foreground"
+              >
+                Showing {filteredArtworks.length} of {artworks.length} artworks
+              </motion.div>
             </div>
           </section>
         </main>
