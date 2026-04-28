@@ -36,8 +36,9 @@ const HomePage = () => {
   
   const featuredWorks = [
     {
-      image: 'https://postimg.cc/Hj31BsxW', //art-gallery
+      image: 'https://i.postimg.cc/Dy3ffS3G/art-gallery.gif', //art-gallery
       title: 'Art Gallery',
+      description: 'A preview of my digital drawings and illustration in one place.',
       category: 'Portfolio',
       link: '/art'
     }
@@ -57,7 +58,7 @@ const HomePage = () => {
           <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0">
               <img
-                src="https://postimg.cc/hhJTDhdR" //showcase19
+                src="https://i.postimg.cc/hhJTDhdR/showcase-19.png" //showcase19
                 alt="Syakibi Twitch Banner"
                 className="w-full h-full object-cover blur-sm"
               />
@@ -115,7 +116,7 @@ const HomePage = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, ease: 'easeOut', type: 'spring', stiffness: 200 }}
                     onClick={() => setAboutExpanded(!aboutExpanded)}
-                    className="md:col-span-1 cursor-pointer group"
+                    className="md:col-span-1 cursor-pointer group w-full max-w-[360px] mx-auto"
                   >
                     <motion.div
                       className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-accent via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md"
@@ -136,7 +137,7 @@ const HomePage = () => {
                       style={{ perspective: '1200px', position: 'relative' }}
                     >
                       <motion.img
-                        src="https://postimg.cc/zLJT8jC1" //about
+                        src="https://i.postimg.cc/zLJT8jC1/about.png" //about
                         alt="Syakibi"
                         className="w-full h-auto object-cover"
                         animate={{ 
@@ -224,7 +225,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto mt-20">
+              <div className="grid grid-cols-1 gap-8 max-w-xl mx-auto mt-20">
                 {featuredWorks.map((work, index) => (
                   <motion.div
                     key={index}
@@ -234,28 +235,33 @@ const HomePage = () => {
                     transition={{ duration: 0.6, delay: index * 0.1, type: 'spring', stiffness: 200 }}
                   >
                     <Link to={work.link} className="group block">
-                      <motion.div 
-                        className="relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300"
-                        whileHover={{ 
-                          scale: 1.04,
-                          rotateZ: 1
-                        }}
-                        transition={{ duration: 0.3 }}
+                      <motion.div
+                        className="relative overflow-hidden rounded-[2.25rem] shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_80px_rgba(15,23,42,0.3)] max-w-[420px] mx-auto"
+                        whileHover={{ scale: 1.01 }}
                       >
-                        <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-accent via-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md"></div>
-                        
-                        <div className="relative rounded-3xl overflow-hidden border-2 border-accent/40 group-hover:border-accent transition-colors duration-300">
-                          <div className="aspect-[16/9] overflow-hidden relative bg-black">
+                        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-accent/10 via-secondary/5 to-primary/10" />
+
+                        <div className="relative overflow-hidden border border-white/10 rounded-[2.25rem] bg-slate-950">
+                          <div className="aspect-[16/9] overflow-hidden bg-black">
                             <img
                               src={work.image}
                               alt={work.title}
-                              className="w-full h-full object-contain"
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               loading="lazy"
                             />
                           </div>
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h3 className="text-white font-semibold text-xl mb-1">{work.title}</h3>
-                            <p className="text-white/80 text-sm font-medium tracking-wide uppercase">{work.category}</p>
+
+                          <div className="p-6 sm:p-8 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent">
+                            <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                              <span className="inline-flex rounded-full bg-primary/95 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-primary-foreground">
+                                {work.category}
+                              </span>
+                              <span className="text-xs uppercase tracking-[0.24em] text-white/60">Featured</span>
+                            </div>
+                            <h3 className="text-3xl font-semibold text-white tracking-tight mb-3">{work.title}</h3>
+                            <p className="text-sm leading-6 text-white/70 max-w-xl">
+                              {work.description}
+                            </p>
                           </div>
                         </div>
                       </motion.div>

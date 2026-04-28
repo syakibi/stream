@@ -30,7 +30,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center">
               <img 
-                src="https://postimg.cc/B8MH6Kp3" //profile
+                src="https://i.postimg.cc/B8MH6Kp3/profile.png" //profile
                 alt="Syakibi Logo"
                 className="w-full h-full object-cover"
               />

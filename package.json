@@ -3,7 +3,8 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build": "npm run build --prefix apps/web",
+		"dev": "npm --prefix apps/web run dev",
+		"build": "npm --prefix apps/web run build",
 		"deploy": "gh-pages -d apps/web/dist"
 	},
 	"devDependencies": {

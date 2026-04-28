@@ -16,33 +16,33 @@ const ArtShowcasePage = () => {
   const loadMoreRef = useRef(null);
 
   const artworks = [
-    { image: 'https://i.postimg.cc/hjqr287x/showcase-0.png', title: 'Vector' },
-    { image: 'https://i.postimg.cc/qRdL1cC2/showcase-1.png', title: 'Syakibi but Rappa Hat' },
-    { image: 'https://i.postimg.cc/pTtZsQnZ/showcase-2.png', title: 'Tall Clover Fanart' },
-    { image: 'https://i.postimg.cc/QMVz5qZK/showcase-3.png', title: 'Ellie Fanart' },
-    { image: 'https://i.postimg.cc/tTtzw1hL/showcase-4.png', title: 'Oh Bubbles my Bubbles' },
-    { image: 'https://i.postimg.cc/qRXGSt8b/showcase-5.png', title: 'Screen Idle' },
-    { image: 'https://i.postimg.cc/DZdcHWqM/showcase-6.png', title: 'Clover and Klee' },
-    { image: 'https://i.postimg.cc/DZdcHWqY/showcase-7.png', title: 'Igni Fanart' },
-    { image: 'https://i.postimg.cc/ZnbLSTcD/showcase-8.png', title: 'Helix Fanart' },
-    { image: 'https://i.postimg.cc/3N8ZTKB6/showcase-9.png', title: 'Fi 1st Anniversary Fanart' },
-    { image: 'https://i.postimg.cc/kGJymnsd/showcase-10.png', title: 'Clover but Chimera' },
-    { image: 'https://i.postimg.cc/D0vcT26F/showcase-11.png', title: 'Starky Fanart' },
-    { image: 'https://i.postimg.cc/mkLSsbjZ/showcase-12.png', title: 'Rice Shower' },
-    { image: 'https://i.postimg.cc/SRSGhydN/showcase-13.png', title: 'BlueFoxy Fanart' },
-    { image: 'https://i.postimg.cc/90LYXvgX/showcase-14.png', title: 'Miki Fanart' },
-    { image: 'https://i.postimg.cc/0jkCs8nw/showcase-15.png', title: 'Lyraa but Bangboo' },
-    { image: 'https://i.postimg.cc/7hKnPptz/showcase-16.png', title: 'Jingyuan Fanart' },
-    { image: 'https://i.postimg.cc/x863jWpG/showcase-17.png', title: 'Fi Fanart' },
-    { image: 'https://i.postimg.cc/T209cD26/showcase-18.png', title: 'Overlord Fanart' },
-    { image: 'https://i.postimg.cc/VsgRFCsv/showcase-19.png', title: 'Syakibi background' },
-    { image: 'https://i.postimg.cc/nV2k1DVY/showcase-20.png', title: 'Small Clover Fanart' },
-    { image: 'https://i.postimg.cc/sxN2Kc0Z/showcase-21.png', title: 'Clover 3rd Anniversary Fanart' },
-    { image: 'https://i.postimg.cc/sxXXp8KX/showcase-22.png', title: 'Zombie Syakibi' },
-    { image: 'https://i.postimg.cc/6q33dSzq/showcase-23.png', title: 'Syakibi Gloves' },
-    { image: 'https://i.postimg.cc/fyrb5KgY/showcase-24.png', title: 'Overlord 2nd Anniversary Fanart' },
-    { image: 'https://i.postimg.cc/D0Mz5gY0/showcase-25.png', title: 'Spikibi' },
-    { image: 'https://i.postimg.cc/T14PQ9H5/showcase-26.png', title: 'Evil Syakibi' }
+    { image: 'https://i.postimg.cc/bG3kJtgN/showcase-0.png', title: 'Vector' },
+    { image: 'https://i.postimg.cc/ns0BzD2L/showcase-1.png', title: 'Syakibi but Rappa Hat' },
+    { image: 'https://i.postimg.cc/WDXg3k8F/showcase-2.png', title: 'Tall Clover Fanart' },
+    { image: 'https://i.postimg.cc/CZTJpk1w/showcase-3.png', title: 'Ellie Fanart' },
+    { image: 'https://i.postimg.cc/62qRGpb0/showcase-4.png', title: 'Oh Bubbles my Bubbles' },
+    { image: 'https://i.postimg.cc/dk3dTVNr/showcase-5.png', title: 'Screen Idle' },
+    { image: 'https://i.postimg.cc/tZJPV4v3/showcase-6.png', title: 'Clover and Klee' },
+    { image: 'https://i.postimg.cc/7Gh7TZtg/showcase-7.png', title: 'Igni Fanart' },
+    { image: 'https://i.postimg.cc/dkfCRcg8/showcase-8.png', title: 'Helix Fanart' },
+    { image: 'https://i.postimg.cc/TLsbjvBq/showcase-9.png', title: 'Fi 1st Anniversary Fanart' },
+    { image: 'https://i.postimg.cc/gX7hyb1M/showcase-10.png', title: 'Clover but Chimera' },
+    { image: 'https://i.postimg.cc/LYWPkFG0/showcase-11.png', title: 'Starky Fanart' },
+    { image: 'https://i.postimg.cc/tZc6dG88/showcase-12.png', title: 'Rice Shower' },
+    { image: 'https://i.postimg.cc/ftPd7Q16/showcase-13.png', title: 'BlueFoxy Fanart' },
+    { image: 'https://i.postimg.cc/64GvY1NF/showcase-14.png', title: 'Miki Fanart' },
+    { image: 'https://i.postimg.cc/XGP5K6Tj/showcase-15.png', title: 'Lyraa but Bangboo' },
+    { image: 'https://i.postimg.cc/tnVx2mjR/showcase-16.png', title: 'Jingyuan Fanart' },
+    { image: 'https://i.postimg.cc/zHRg0Pr3/showcase-17.png', title: 'Fi Fanart' },
+    { image: 'https://i.postimg.cc/jCWPxCJg/showcase-18.png', title: 'Overlord Fanart' },
+    { image: 'https://i.postimg.cc/hhJTDhdR/showcase-19.png', title: 'Syakibi background' },
+    { image: 'https://i.postimg.cc/xqkMfqzc/showcase-20.png', title: 'Small Clover Fanart' },
+    { image: 'https://i.postimg.cc/GTvrmkRc/showcase-21.png', title: 'Clover 3rd Anniversary Fanart' },
+    { image: 'https://i.postimg.cc/62ktKMkJ/showcase-22.png', title: 'Zombie Syakibi' },
+    { image: 'https://i.postimg.cc/sQkszTkC/showcase-23.png', title: 'Syakibi Gloves' },
+    { image: 'https://i.postimg.cc/xNLY1KQd/showcase-24.png', title: 'Overlord 2nd Anniversary Fanart' },
+    { image: 'https://i.postimg.cc/V0X1kjwP/showcase-25.png', title: 'Spikibi' },
+    { image: 'https://i.postimg.cc/9wyVQG2c/showcase-26.png', title: 'Evil Syakibi' }
   ];
 
   const filteredArtworks = artworks.slice(0, visibleImages);
@@ -113,9 +113,9 @@ const ArtShowcasePage = () => {
                 </p>
               </motion.div>
 
-              <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 {filteredArtworks.map((artwork, index) => (
-                  <div key={index} className="break-inside-avoid">
+                  <div key={index} className="w-full">
                     <ArtCard
                       image={artwork.image}
                       title={artwork.title}
